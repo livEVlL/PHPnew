@@ -9,9 +9,9 @@ $newPass = password_hash($passwd,PASSWORD_DEFAULT);
 //echo $newPass2;
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=iii", "root", "00000000");
-    $stmt = $pdo->prepare("INSERT INTO member(account,passwd) VALUE (?,?)");
+    $stmt = $pdo->prepare("INSERT INTO member (account) VALUE (?)");
     $stmt->bindParam(1, $account);
-    $stmt->bindParam(2, $newPass);
+    //$stmt->bindParam(2, $newPass);
     if ($stmt->execute()){
         echo 'OK';
     }else{
